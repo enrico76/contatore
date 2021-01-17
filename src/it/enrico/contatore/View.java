@@ -1,4 +1,4 @@
-package it.mvc.contator;
+package it.enrico.contatore;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -12,10 +12,10 @@ import javax.swing.SwingConstants;
  * @author Enrico
  */
 public class View {
-    private JFrame finestra;
-    private JLabel etichetta;
-    private JButton btnIncrementa;
-    private JButton btnAzzera;
+    private JFrame finestra; //finestra della UI
+    private JLabel etichetta; //per visualizzare il valore del contatore
+    private JButton btnIncrementa; // incrementa il contatore
+    private JButton btnAzzera; //per azzerare il contatore
     
     public View(String titolo) {
         finestra = new JFrame(titolo);
@@ -31,17 +31,33 @@ public class View {
         
         btnAzzera = new JButton("Azzera");
         btnAzzera.setEnabled(false);
-        finestra.getContentPane().add(btnAzzera, BorderLayout.NORTH);
+        finestra.getContentPane().add(btnIncrementa, BorderLayout.NORTH);
         
         btnIncrementa = new JButton("Incrementa");
         finestra.getContentPane().add(btnIncrementa, BorderLayout.SOUTH);
         
         finestra.setVisible(true);
         
-        
-        
-        
-        
     }
+    
+    public JButton getBtnIncrementa() {
+        return btnIncrementa;
+    }
+    /**
+     * fornisce il riferimento del bottone per l'azzeramento
+     * @return Riferimento del bottone
+     */
+    public JButton getBtnAzzera() {
+        return btnAzzera;
+    }
+    
+    /**
+     * scrive nell'etichetta il valore passato
+     * @param valore 
+     */
+    public void setEtichetta(String valore) {
+        etichetta.setText(valore);
+    }
+
     
 }
